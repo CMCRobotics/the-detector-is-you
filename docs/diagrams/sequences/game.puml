@@ -14,19 +14,19 @@ group Launch [loop]
 
 
     GF ->  DV : Trigger Tuning
-    activate PL
-    PL <-> DV : Tune
     activate DV
-
+    PL <-> DV : Tune
+    activate PL
+    
     alt Automatic Launch
-        GF -> SC : DisplayCountdown()
+        GF -> SC : Display Countdown
         activate SC
-        DV -> DV : Countdown()
+        DV -> DV : Countdown
     else Manual Launch
         GO -> GF : Force Launch
     end
     GF -> DV : Launch
-    DV -> DV : TakeMeasurement()
+    DV -> DV : Take Measurement
     deactivate SC
  
     DV -> PL : Display Measurement
@@ -38,16 +38,16 @@ group Launch [loop]
     deactivate PL
     deactivate TL
     
-    DV -> GF : Vote()
+    DV -> GF : Dispatch Vote
     deactivate DV
 
-    GF -> SC : UpdateVoteProgress()
+    GF -> SC : Update Vote Progress
 
     
     activate SC
-    GF -> SC : DisplayReconstruction()
+    GF -> SC : Display Reconstruction
 
-    GF-> SC : UpdateScore()
+    GF-> SC : Update Score
 
     deactivate GF
     deactivate SC
