@@ -1,0 +1,78 @@
+@startuml
+
+package Lutte {
+    interface Team
+    interface Action
+    interface Game
+}
+
+package Tdiy {
+    class TdiyGame {
+        TdiyTeam team1
+        TdiyTeam team2
+        TdiyTeam team3
+        TdiyTeam team4
+    }
+
+    TdiyGame ..|> Game 
+    
+    enum ParticleType {
+        MUON
+        ELECTRON
+        PHOTON
+        PROTON
+        --
+        BEAR
+        FOX
+        RABBIT
+        FROG
+    }
+
+    note bottom of ParticleType
+      MUON - heavy, chargeless, fast
+      ELECTRON - light, negative charge, slow
+      PHOTON - light, no charge, fast
+      PROTON - heavy, positive charge, slow
+      --
+      BEAR - heavy, omnivorous, slow
+      FOX - medium, carnivorous, fast
+      RABBIT - light, herbivorous, fast
+      FROG - light, insectivorus, slow
+    end note
+
+   class LaunchAction{
+        ParticleType particle1Type
+        ParticleType particle2Type
+        ParticleType particle3Type
+        ParticleType particle4Type
+    }
+
+    TdiyGame *-- LaunchAction
+    LaunchAction --|> TdiyAction
+
+    enum ActionType {
+        SCORE 
+        PLAYER_VOTE
+        TEAM_VOTE
+        TRIGGER_LAUNCH 
+        TIMEOUT_LAUNCH 
+    }
+
+    class TdiyAction {
+        ActionType type
+    }
+
+    TdiyAction ..|> Action
+
+    class TdiyTeam
+    TdiyTeam ..|> Team
+
+    class TdiyPlayer{
+        string deviceId
+    }
+
+    TdiyPlayer --* TdiyTeam : belongs to
+
+
+}
+@enduml

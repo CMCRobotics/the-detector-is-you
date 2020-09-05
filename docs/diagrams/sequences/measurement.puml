@@ -1,0 +1,74 @@
+@startuml Device
+
+boundary Radio as RD
+
+participant Device as DV
+
+boundary KeyA as KA
+boundary KeyB as KB
+
+boundary Gyro as GY
+
+participant Display as DP
+actor Player as PL
+
+activate DV
+
+group Launch Round
+
+  activate RD
+  RD -> DV : onTuningMessage()
+  DV -> DV : Preare reading
+  note right DV
+   Setup reading results and tuning probability
+  end note
+  
+  DV -> DP : Display Tuner
+  activate DP
+  activate GY
+
+  activate PL
+
+  loop until launch
+    PL -> GY : Orient Device
+    GY -> DP : Update Tune
+    loop every second
+      DV -> DP : Update Countdown
+    end
+  end
+
+  RD -> DV : onLaunchMessage()
+  DV -> GY : Take Measurement
+  DV -> DP : Display Reading
+
+end
+
+group Voting Round
+  RD -> DV : onVotingStartMessage()
+
+  activate KA 
+  activate KB
+  loop until Key B is pressed for 3 seconds
+    alt Key A pressed
+      PL -> KA : Switch Choice
+      KA -> DV : Update Choice
+      DV -> DP : Display Choice
+      DV -> DV : Stay on Choice display for 3 seconds minimum
+    end
+    alt Gyro forward
+      DV -> DP : Display Measurement for 1 second minimum
+    else Gyro backward
+      DV -> DP : Display current Choice for 1 second minimum
+    end
+  end
+  deactivate GY
+  PL -> KB : Confirm Vote
+  KB -> DV : Send Vote
+  DV -> RD : Dispatch Vote
+  deactivate KA
+  deactivate KB
+  DV -> DP : Lock Vote
+  deactivate PL
+end
+
+@enduml

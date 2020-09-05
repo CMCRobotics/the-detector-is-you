@@ -1,0 +1,57 @@
+@startuml Game
+actor "Game Organizer" as GO
+
+participant "Game Flow" as GF
+participant "Scoreboard" as SC
+
+actor Player as PL
+actor "Team Leader" as TL
+participant "Device" as DV
+
+group Launch [loop]
+    GO -> GF : Initiate launch
+    activate GF
+
+
+    GF ->  DV : Trigger Tuning
+    activate PL
+    PL <-> DV : Tune
+    activate DV
+
+    alt Automatic Launch
+        GF -> SC : DisplayCountdown()
+        activate SC
+        DV -> DV : Countdown()
+    else Manual Launch
+        GO -> GF : Force Launch
+    end
+    GF -> DV : Launch
+    DV -> DV : TakeMeasurement()
+    deactivate SC
+ 
+    DV -> PL : Display Measurement
+
+    activate TL
+    PL <-> TL : Discuss vote
+
+    PL -> DV : Vote
+    deactivate PL
+    deactivate TL
+    
+    DV -> GF : Vote()
+    deactivate DV
+
+    GF -> SC : UpdateVoteProgress()
+
+    
+    activate SC
+    GF -> SC : DisplayReconstruction()
+
+    GF-> SC : UpdateScore()
+
+    deactivate GF
+    deactivate SC
+end
+
+
+@enduml
