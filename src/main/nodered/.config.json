@@ -396,7 +396,7 @@
   "node-red-dashboard": {
    "name": "node-red-dashboard",
    "version": "2.23.3",
-   "local": false,
+   "local": true,
    "nodes": {
     "ui_base": {
      "name": "ui_base",
@@ -613,7 +613,7 @@
   "node-red-contrib-ui-svg": {
    "name": "node-red-contrib-ui-svg",
    "version": "2.0.3",
-   "local": false,
+   "local": true,
    "nodes": {
     "ui_svg_graphics": {
      "name": "ui_svg_graphics",
@@ -630,7 +630,7 @@
   "node-red-contrib-looptimer": {
    "name": "node-red-contrib-looptimer",
    "version": "0.0.8",
-   "local": false,
+   "local": true,
    "nodes": {
     "looptimer": {
      "name": "looptimer",
@@ -647,7 +647,7 @@
   "node-red-contrib-counter": {
    "name": "node-red-contrib-counter",
    "version": "0.1.5",
-   "local": false,
+   "local": true,
    "nodes": {
     "counter": {
      "name": "counter",
@@ -658,6 +658,26 @@
      "local": true,
      "module": "node-red-contrib-counter",
      "file": "/data/node_modules/node-red-contrib-counter/counter.js"
+    }
+   }
+  },
+  "node-red-node-serialport": {
+   "name": "node-red-node-serialport",
+   "version": "0.11.0",
+   "local": true,
+   "nodes": {
+    "serialport": {
+     "name": "serialport",
+     "types": [
+      "serial in",
+      "serial out",
+      "serial request",
+      "serial-port"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-node-serialport",
+     "file": "/data/node_modules/node-red-node-serialport/25-serial.js"
     }
    }
   }

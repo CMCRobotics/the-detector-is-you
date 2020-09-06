@@ -7,6 +7,7 @@
         "node-red-contrib-counter": "~0.1.5",
         "node-red-contrib-looptimer": "0.0.8",
         "node-red-contrib-ui-svg": "~2.0.3",
-        "node-red-dashboard": "~2.23.3"
+        "node-red-dashboard": "~2.23.3",
+        "node-red-node-serialport": "~0.11.0"
     }
 }
