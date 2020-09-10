@@ -8,10 +8,29 @@ actor Player as PL
 actor "Team Leader" as TL
 participant "Device" as DV
 
-group Launch [loop]
-    GO -> GF : Initiate launch
-    activate GF
+activate GO
 
+group Create Game
+  GO -> GF : Open registrations
+  activate GF
+  activate DV
+  activate PL
+  PL -> DV : Wake up
+
+  DV -> GF : Register Device
+
+  deactivate PL
+  deactivate DV
+
+  GF -> GF : Update team data
+
+  GO -> GF : Close registrations
+  
+end 
+
+group Launch [loop]
+    
+    GO -> GF : Initiate launch
 
     GF ->  DV : Trigger Tuning
     activate DV
@@ -25,6 +44,7 @@ group Launch [loop]
     else Manual Launch
         GO -> GF : Force Launch
     end
+    deactivate GO
     GF -> DV : Launch
     DV -> DV : Take Measurement
     deactivate SC

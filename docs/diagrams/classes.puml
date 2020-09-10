@@ -41,10 +41,7 @@ package Tdiy {
     end note
 
    class LaunchAction{
-        ParticleType particle1Type
-        ParticleType particle2Type
-        ParticleType particle3Type
-        ParticleType particle4Type
+        ParticleType particleType
     }
 
     TdiyGame *-- LaunchAction

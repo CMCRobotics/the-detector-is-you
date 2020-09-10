@@ -680,6 +680,45 @@
      "file": "/data/node_modules/node-red-node-serialport/25-serial.js"
     }
    }
+  },
+  "node-red-contrib-uibuilder": {
+   "name": "node-red-contrib-uibuilder",
+   "version": "2.0.8",
+   "local": false,
+   "nodes": {
+    "uibuilder": {
+     "name": "uibuilder",
+     "types": [
+      "uibuilder"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-uibuilder",
+     "file": "/data/node_modules/node-red-contrib-uibuilder/nodes/uibuilder.js"
+    }
+   }
+  },
+  "node-red-contrib-socketio": {
+   "name": "node-red-contrib-socketio",
+   "version": "1.0.7",
+   "local": false,
+   "nodes": {
+    "socket-io": {
+     "name": "socket-io",
+     "types": [
+      "socketio-config",
+      "socketio-in",
+      "socketio-out",
+      "socketio-join",
+      "socketio-leave",
+      "socketio-rooms"
+     ],
+     "enabled": true,
+     "local": true,
+     "module": "node-red-contrib-socketio",
+     "file": "/data/node_modules/node-red-contrib-socketio/socketio.js"
+    }
+   }
   }
  },
  "_credentialSecret": "cfb6dba940800393cdaca37f73f41cac5b15db664051ff6377bc987f7aacf092",
