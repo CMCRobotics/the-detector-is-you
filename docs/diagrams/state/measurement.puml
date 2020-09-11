@@ -2,30 +2,43 @@
 
 title Microbit State Machine
 
-[*] --> ListeningForMessages
+[*] --> Initializing
 
-state ListeningForMessages {
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
+state Initializing {
+  [*] --> ReadConfig
+  ReadConfig --> CalibrateGyroscope
+}
+
+state WaitForMessage {
+  CalibrateGyroscope --> Wait
+  Wait --> Tuning : [On Tuning message]
+  Wait --> SendAlive : [On Alive Timeout]
+  SendAlive --> Wait : [On Alive Ack]
 }
 
 state Tuning {
-  [*] --> NewValueSelection
-  NewValueSelection --> NewValuePreview : EvNewValue
-  NewValuePreview --> NewValueSelection : EvNewValueRejected
-  NewValuePreview --> NewValueSelection : EvNewValueSaved
-
-  state NewValuePreview {
-     State1 -> State2
-  }
+  [*] --> ReadOrientation
+  ReadOrientation --> AdjustDisplay
+  AdjustDisplay --> Reading : [On Reading message]
+  AdjustDisplay --> ReadOrientation : [! On Reading Message]
 }
 
 state Reading {
-
+  [*] --> CaptureOrientation
+  CaptureOrientation --> EvaluateReadingQuality
+  EvaluateReadingQuality --> DisplayMeasurement
+  DisplayMeasurement --> Voting : [On Read Measurement timeout]
 }
 
 state Voting {
-
+  [*] --> InitializeVoteChoice
+  InitializeVoteChoice --> DisplayVoteChoice
+  DisplayVoteChoice --> DisplayMeasurementAgain : [On Gyro Roll Forward]
+  DisplayMeasurementAgain --> DisplayVoteChoice : [On Gyro Roll Backward]
+  DisplayVoteChoice --> IncreaseVoteChoice : [On Key A]
+  IncreaseVoteChoice --> DisplayVoteChoice : [On choice timeout]
+  DisplayVoteChoice --> ConfirmChoice : [On Key B]
+  ConfirmChoice --> DispatchVote : [On Key B]
+  DispatchVote --> Wait
 }
 @enduml
