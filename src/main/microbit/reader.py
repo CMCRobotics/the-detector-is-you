@@ -11,11 +11,11 @@ def scale_distance(point1, point2):
     return ceil(scale(distance(point1, point2), 9, 0, 0,2894))
 
 
-scope = Image("09990:"
-              "90009:"
-              "90909:"
-              "90009:"
-              "09990")
+scope = Image("03330:"
+              "30003:"
+              "30303:"
+              "30003:"
+              "03330")
 sight = Image("00000:"
               "01110:"
               "01010:"
