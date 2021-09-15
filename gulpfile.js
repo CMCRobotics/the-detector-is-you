@@ -22,6 +22,8 @@ const minify = require('gulp-clean-css')
 const connect = require('gulp-connect')
 const autoprefixer = require('gulp-autoprefixer')
 
+const jquery = require('jquery')
+
 const root = yargs.argv.root || '.'
 const port = yargs.argv.port || 8000
 

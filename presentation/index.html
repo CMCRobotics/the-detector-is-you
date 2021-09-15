@@ -2,30 +2,59 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>reveal.js - Barebones</title>
+		<title>Le d&eacute;tecteur c'est&nbsp;toi</title>
 		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/moon.css">
 	</head>
 	<body>
 
 		<div class="reveal">
 			<div class="slides">
-
 				<section>
-					<h2>Barebones Presentation</h2>
-					<p>This example contains the bare minimum includes and markup required to run a reveal.js presentation.</p>
+					<h1>D&eacute;marrage</h1>
+					<form action="#">
+					  Code session <input type="text" name="session_code">
+					  <button type="submit">Submit</button>
+					</form>
+					<p id="json"></p>
+				</section>
+				<section>
+					<h1>Le d&eacute;tecteur c'est&nbsp;toi</h1>
 				</section>
 
-				<section>
-					<h2>No Theme</h2>
-					<p>There's no theme included, so it will fall back on browser defaults.</p>
+				<section data-markdown>
+					<textarea data-template>
+					## On se connait ?
+					
+				    </textarea>
 				</section>
 
 			</div>
 		</div>
-
 		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/markdown/markdown.js"></script>
 		<script>
-			Reveal.initialize();
+			Reveal.initialize({
+				plugins: [ RevealMarkdown ],
+				progress: true,
+				controls: true
+			});
+
+
+			$(function() {
+				$('body').on('submit','form',function() {
+					var answers = [];
+					$('input[type="text"]', this).each(function(){
+					  answers.push({'name':$(this).data('name'), 'value':this.value});
+					});
+					var data = {
+						'answers': answers
+					};
+					json = JSON.stringify(data);
+					$('#json').append(json);
+					return false;
+				});    
+			});
 		</script>
 
 	</body>
