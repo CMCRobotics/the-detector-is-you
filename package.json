@@ -40,6 +40,7 @@
     "glob": "^7.1.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
+    "gulp-cached": "^1.1.1",
     "gulp-clean-css": "^4.2.0",
     "gulp-connect": "^5.7.0",
     "gulp-eslint": "^6.0.0",
@@ -47,14 +48,14 @@
     "gulp-tap": "^2.0.0",
     "gulp-zip": "^4.2.0",
     "highlight.js": "^10.0.3",
+    "jquery": "^3.6.0",
     "marked": "^2.0.3",
     "node-qunit-puppeteer": "^2.0.1",
     "qunit": "^2.10.0",
     "rollup": "^2.48.0",
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.32.13",
-    "yargs": "^15.1.0",
-    "jquery": "^3.6.0"
+    "yargs": "^15.1.0"
   },
   "browserslist": "> 0.5%, IE 11, not dead",
   "eslintConfig": {

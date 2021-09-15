@@ -14,6 +14,7 @@ const resolve = require('@rollup/plugin-node-resolve').default
 const sass = require('sass')
 
 const gulp = require('gulp')
+const cache = require('gulp-cached')
 const tap = require('gulp-tap')
 const zip = require('gulp-zip')
 const header = require('gulp-header')
@@ -21,8 +22,6 @@ const eslint = require('gulp-eslint')
 const minify = require('gulp-clean-css')
 const connect = require('gulp-connect')
 const autoprefixer = require('gulp-autoprefixer')
-
-const jquery = require('jquery')
 
 const root = yargs.argv.root || '.'
 const port = yargs.argv.port || 8000
@@ -69,7 +68,12 @@ babelConfigESM.presets[0][1].targets = { browsers: [
     'last 2 Edge versions', 'not Edge < 16',
 ] };
 
-let cache = {};
+
+gulp.task('copy_node_modules', () => 
+    gulp.src('node_modules/jquery/dist/jquery.min.*')
+            .pipe(cache('node_modules'))
+            .pipe(gulp.dest('dist/'))
+);
 
 // Creates a bundle with broad browser support, exposed
 // as UMD
@@ -266,9 +270,10 @@ gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.js'])
 
 gulp.task('test', gulp.series( 'eslint', 'qunit' ))
 
-gulp.task('default', gulp.series(gulp.parallel('js', 'css', 'plugins'), 'test'))
+gulp.task('build', gulp.parallel('js', 'copy_node_modules', 'css', 'plugins'))
 
-gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
+gulp.task('default', gulp.series("build", 'test'))
+
 
 gulp.task('package', gulp.series('default', () =>
 
