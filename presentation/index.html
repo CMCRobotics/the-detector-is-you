@@ -4,20 +4,22 @@
 		<meta charset="utf-8">
 		<title>Le d&eacute;tecteur c'est&nbsp;toi</title>
 		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/moon.css">
+		<link rel="stylesheet" href="../dist/theme/solarized.css">
 	</head>
 	<body>
 
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<section>
-						<h1>Le d&eacute;tecteur c'est&nbsp;toi</h1>
+					<section data-markdown>
+						<textarea data-template>
+							# Le d&eacute;tecteur c'est&nbsp;toi
+						</textarea>
 					</section>
 					<section>
 						<h1>D&eacute;marrage</h1>
 						<form action="#">
-						Code session <input style="vertical-align: middle; height: 1.5em; width: 20%; font-size: 0.6em;" type="text" name="session_code">
+						Code session <input id="session_code" style="vertical-align: middle; height: 1.5em; width: 20%; font-size: 0.6em;" type="text" name="session_code">
 						<br><button style="vertical-align: middle;height: 3em; width: 20%;" type="submit">En route !</button>
 						</form>
 						<p id="json"></p>
@@ -28,16 +30,115 @@
 				<section >
 					<section data-markdown>
 						<textarea data-template>
-						## On se connait ?
+						## Qui es-tu ?
 						
 						</textarea>
 				    </section>
-					<section data-background-iframe="https://hakim.se" data-background-interactive> 
-					  
+					<section data-microsquad data-background-iframe="http://localhost:8000/?sc=huko" data-background-interactive> 
+						<!-- Game : Customeeze -->
 					</section>
 				</section>
-				
+				<section >
+					<section data-markdown>
+						<textarea data-template>
+						## De quoi est fait ce qui nous entoure ?
+						
+						</textarea>
+				    </section >
+					<section data-markdown>
+						<textarea data-template>
+						## De plus en plus petit...
+						
+						</textarea>
+				    </section>
+				</section>
+				<section >
+					<section data-markdown>
+						<textarea data-template>
+						## Comment voir des particules &eacute;l&eacute;mentaires ?
+						
+						</textarea>
+				    </section>
+					<section data-markdown>
+						<textarea data-template>
+						## Il faut les d&eacute;tecter !
+						</textarea>
+				    </section>
 
+					<section data-markdown>
+						<textarea data-template>
+						## Les particules et leurs propri&eacute;t&eacute;s
+						<!-- Energy, Charge, Velocity -->
+						</textarea>
+				    </section>
+
+					<section data-markdown>
+						<textarea data-template>
+						## Un, deux, trois d&eacute;tecteurs
+						</textarea>
+				    </section>
+
+					<section data-microsquad data-background-iframe="http://localhost:8000?sc=huko" data-background-interactive> 
+						<!-- Game : Simple Detection -->
+					</section>
+				</section>
+
+				<section >
+					<section data-markdown>
+						<textarea data-template>
+						## Le LHC et ses d&eacute;tecteurs
+						
+						</textarea>
+				    </section>
+					<section data-markdown>
+						<textarea data-template>
+						## CMS
+						</textarea>
+				    </section>
+
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecteur &agrave; calorim&egrave;tre
+						</textarea>
+				    </section>
+
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecteur de charge
+						</textarea>
+				    </section>
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecteur de v&eacute;locit&eacute;
+						</textarea>
+				    </section>
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecter un proton
+						<!-- Game : Visualize a proton -->
+						</textarea>
+				    </section>
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecter un électron
+						<!-- Game : Visualize an electron -->
+						</textarea>
+				    </section>
+
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecter un photon
+						</textarea>
+				    </section>
+
+					<section data-markdown>
+						<textarea data-template>
+						## D&eacute;tecter un neutron
+						</textarea>
+				    </section>
+				</section>
+
+				
 			</div>
 		</div>
 		<script src="../dist/jquery.min.js"></script>
@@ -50,18 +151,19 @@
 				controls: true
 			});
 
-
 			$(function() {
 				$('body').on('submit','form',function() {
-					var answers = [];
-					$('input[type="text"]', this).each(function(){
-					  answers.push({'name':$(this).data('name'), 'value':this.value});
-					});
-					var data = {
-						'answers': answers
-					};
-					json = JSON.stringify(data);
-					$('#json').append(json);
+					var sessionCode = $('#session_code')[0].value;
+					// $('#json').append(sessionCode);
+					$("section[data-microsquad]").each(
+						function(){
+							var iframeUrl = new URL( $(this).data("background-iframe") );
+							iframeUrl.searchParams.set("sc", sessionCode);
+							$(this).data("background-iframe",iframeUrl.href);
+							console.log("Now "+$(this).data("background-iframe"));
+							// Unfortunately this is NOT WORKING - IFRAME are not reloaded
+						}
+					);
 					return false;
 				});    
 			});
