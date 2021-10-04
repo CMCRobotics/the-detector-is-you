@@ -13,3 +13,5 @@ src/main/nodered/node_modules
 *.backup
 node/
 node_modules/
+.sass-cache
+dist/*.map

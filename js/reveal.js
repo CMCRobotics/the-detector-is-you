@@ -26,7 +26,7 @@ import {
 } from './utils/constants.js'
 
 // The reveal.js version
-export const VERSION = '4.1.3';
+export const VERSION = '4.1.2';
 
 /**
  * reveal.js
@@ -121,13 +121,9 @@ export default function( revealElement, options ) {
 	 */
 	function initialize( initOptions ) {
 
-		if( !revealElement ) throw 'Unable to find presentation root (<div class="reveal">).';
-
 		// Cache references to key DOM elements
 		dom.wrapper = revealElement;
 		dom.slides = revealElement.querySelector( '.slides' );
-
-		if( !dom.slides ) throw 'Unable to find slides container (<div class="slides">).';
 
 		// Compose our config object in order of increasing precedence:
 		// 1. Default reveal.js options
@@ -2197,55 +2193,55 @@ export default function( revealElement, options ) {
 
 	}
 
-	function navigateLeft({skipFragments=false}={}) {
+	function navigateLeft() {
 
 		navigationHistory.hasNavigatedHorizontally = true;
 
 		// Reverse for RTL
 		if( config.rtl ) {
-			if( ( overview.isActive() || skipFragments || fragments.next() === false ) && availableRoutes().left ) {
+			if( ( overview.isActive() || fragments.next() === false ) && availableRoutes().left ) {
 				slide( indexh + 1, config.navigationMode === 'grid' ? indexv : undefined );
 			}
 		}
 		// Normal navigation
-		else if( ( overview.isActive() || skipFragments || fragments.prev() === false ) && availableRoutes().left ) {
+		else if( ( overview.isActive() || fragments.prev() === false ) && availableRoutes().left ) {
 			slide( indexh - 1, config.navigationMode === 'grid' ? indexv : undefined );
 		}
 
 	}
 
-	function navigateRight({skipFragments=false}={}) {
+	function navigateRight() {
 
 		navigationHistory.hasNavigatedHorizontally = true;
 
 		// Reverse for RTL
 		if( config.rtl ) {
-			if( ( overview.isActive() || skipFragments || fragments.prev() === false ) && availableRoutes().right ) {
+			if( ( overview.isActive() || fragments.prev() === false ) && availableRoutes().right ) {
 				slide( indexh - 1, config.navigationMode === 'grid' ? indexv : undefined );
 			}
 		}
 		// Normal navigation
-		else if( ( overview.isActive() || skipFragments || fragments.next() === false ) && availableRoutes().right ) {
+		else if( ( overview.isActive() || fragments.next() === false ) && availableRoutes().right ) {
 			slide( indexh + 1, config.navigationMode === 'grid' ? indexv : undefined );
 		}
 
 	}
 
-	function navigateUp({skipFragments=false}={}) {
+	function navigateUp() {
 
 		// Prioritize hiding fragments
-		if( ( overview.isActive() || skipFragments || fragments.prev() === false ) && availableRoutes().up ) {
+		if( ( overview.isActive() || fragments.prev() === false ) && availableRoutes().up ) {
 			slide( indexh, indexv - 1 );
 		}
 
 	}
 
-	function navigateDown({skipFragments=false}={}) {
+	function navigateDown() {
 
 		navigationHistory.hasNavigatedVertically = true;
 
 		// Prioritize revealing fragments
-		if( ( overview.isActive() || skipFragments || fragments.next() === false ) && availableRoutes().down ) {
+		if( ( overview.isActive() || fragments.next() === false ) && availableRoutes().down ) {
 			slide( indexh, indexv + 1 );
 		}
 
@@ -2257,12 +2253,12 @@ export default function( revealElement, options ) {
 	 * 2) Previous vertical slide
 	 * 3) Previous horizontal slide
 	 */
-	function navigatePrev({skipFragments=false}={}) {
+	function navigatePrev() {
 
 		// Prioritize revealing fragments
-		if( skipFragments || fragments.prev() === false ) {
+		if( fragments.prev() === false ) {
 			if( availableRoutes().up ) {
-				navigateUp({skipFragments});
+				navigateUp();
 			}
 			else {
 				// Fetch the previous horizontal slide, if there is one
@@ -2288,13 +2284,13 @@ export default function( revealElement, options ) {
 	/**
 	 * The reverse of #navigatePrev().
 	 */
-	function navigateNext({skipFragments=false}={}) {
+	function navigateNext() {
 
 		navigationHistory.hasNavigatedHorizontally = true;
 		navigationHistory.hasNavigatedVertically = true;
 
 		// Prioritize revealing fragments
-		if( skipFragments || fragments.next() === false ) {
+		if( fragments.next() === false ) {
 
 			let routes = availableRoutes();
 
@@ -2306,13 +2302,13 @@ export default function( revealElement, options ) {
 			}
 
 			if( routes.down ) {
-				navigateDown({skipFragments});
+				navigateDown();
 			}
 			else if( config.rtl ) {
-				navigateLeft({skipFragments});
+				navigateLeft();
 			}
 			else {
-				navigateRight({skipFragments});
+				navigateRight();
 			}
 		}
 
