@@ -180,23 +180,25 @@
 				plugins: [ RevealMarkdown ],
 				progress: true,
 				controls: true
-			});
-
-			$(function() {
-				$('body').on('submit','form',function() {
-					var sessionCode = $('#session_code')[0].value;
-					// $('#json').append(sessionCode);
-					$("section[data-microsquad]").each(
-						function(){
-							var iframeUrl = new URL( $(this).data("background-iframe") );
-							iframeUrl.searchParams.set("sc", sessionCode);
-							$(this).data("background-iframe",iframeUrl.href);
-							console.log("Now "+$(this).data("background-iframe"));
-							// Unfortunately this is NOT WORKING - IFRAME are not reloaded
-						}
-					);
-					return false;
-				});    
+			}).then(() => {
+				$(document).ready(
+					function(){
+						$('body').on('submit','form',function() {
+							var sessionCode = $('#session_code')[0].value;
+							// $('#json').append(sessionCode);
+							$("section[data-microsquad]").each(
+								function(){
+									var iframeUrl = new URL( $(this).data("background-iframe") );
+									iframeUrl.searchParams.set("sc", sessionCode);
+									$(this).data("background-iframe",iframeUrl.href);
+									console.log("Now "+$(this).data("background-iframe"));
+									// Unfortunately this is NOT WORKING - IFRAME are not reloaded
+								}
+							);
+							return false;
+						});
+				    } 
+				);
 			});
 		</script>
 
