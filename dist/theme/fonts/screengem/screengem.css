@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'Screengem';
+    src: url('./Screengem-Regular.woff') format('woff'),
+         url('./Screengem-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
