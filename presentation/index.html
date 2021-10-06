@@ -4,30 +4,33 @@
 		<meta charset="utf-8">
 		<title>Le d&eacute;tecteur c'est&nbsp;toi</title>
 		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/white.css">
+		<link rel="stylesheet" href="../dist/theme/detector.css">
 	</head>
 	<body>
-
+		
 		<div class="reveal">
 			<div class="slides">
-				<section>
-					<h1>Installez-vous</h1>
-					<h2>La s&eacute;ance va bient&ocirc;t commencer</h2>
+				<section data-background-image="background.svg">
+					
+					<h1 class="r-fit-text">Installez-vous</h1>
+					<h2 class="r-fit-text">La s&eacute;ance va bient&ocirc;t commencer</h2>
+					<audio data-autoplay loop id="elevator" src="music/elevator.mp3"></audio>
 					
 				</section>
 				<section>
 					<section>
-						<h1 class="fragment grow r-fit-text">Le d&eacute;tecteur</h1>
-						<h2 class="fragment r-fit-text fade-up">c'est&nbsp;toi !</h2>
+						<audio data-autoplay id="tdiy" src="music/the-detector-is-you.mp3"></audio>
+						<h1 class="fragment grow r-fit-text" data-autoslide="700">Le d&eacute;tecteur</h1>
+						<h2 class="fragment r-fit-text fade-up" data-autoslide="3000">c'est&nbsp;toi !</h2>
 					</section>					
 				</section>
 
-				<section >
+				<section>
 					<section>
 						<h1 class="r-fit-text">Qui es-tu ?</h1>
 						</textarea>
 				    </section>
-					<section data-microsquad data-background-iframe="http://pcen35270-pvss1.cern.ch:8000/?gn=customeeze" data-background-interactive> 
+					<section data-microsquad data-background-iframe="http://localhost:8000/?gn=customeeze" data-background-interactive> 
 						<!-- Game : Customeeze -->
 					</section>
 				</section>
@@ -36,18 +39,15 @@
 						<h1 id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
 					</section>
 					<section data-auto-animate>
-						<h1 id="de-quoi"class="r-fit-text" >De quoi <br>es-tu fait ?</h1>
+						<h1 id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
 						<h2 id="de-particules">De particules !</h2>
 					</section>
-					
 					<section data-auto-animate>
 						<h2 id="de-particules">De particules !</h2>
 						<div data-id="particles-heading">Les particules sont de minuscules morceaux de matière qui composent tout ce qu'on trouve dans notre Univers.</div>
+						<img src="photos/matter.png">
+						<h2 class="fragment">Tout est fait de particules !</h2>
 					<!-- </section> -->
-					</section>
-					<section data-auto-animate>
-						<div data-id="particles-heading">Les particules sont de minuscules morceaux de matière qui composent tout ce qu'on trouve dans notre Univers.</div>
-						<h2>Tout est fait de particules !</h2>
 					</section>
 					<section data-auto-animate>
 						<h2>Tout est fait de particules !</h2>
@@ -72,8 +72,7 @@
 					<section data-auto-animate>
 						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de Lego&trade;</h1>
 						<ul>
-							<li class="fragment">Il existe plusieurs types de particles</li>
-							<li class="fragment">Elles ont des propri&eacute;t&eacute;s diff&eacute;rentes</li>
+							<li class="fragment">Il existe plusieurs types de particules</li>
 							<li class="fragment">Certaines sont lentes, d'autres se d&eacute;placent rapidement.</li>
 							<li class="fragment">Certaines sont lourdes, d'autres n'ont pas de masse du tout.</li>
 							<li class="fragment">Certaines ont une charge &eacute;lectrique positive ou n&eacute;gative.</li>
@@ -84,12 +83,12 @@
 				</section>
 				<section >
 					<section data-auto-animate>
-						<h2>Comment peux-tu voir des particules ?</h2>
+						<h1>Comment trouver des particules ?</h1>
 					</section>
 					<section data-auto-animate>
-						<h2>Comment peux-tu voir des particules ?</h2>
+						<h1>Comment trouver des particules ?</h1>
 						<ul>
-							<li class="fragment">On ne peut pas les voir...</li>
+							<li >On ne peut pas les voir...</li>
 							<li class="fragment">Ni les entendre, ni les toucher, ni les go&ucirc;ter, ni les sentir...</li>
 							<li class="fragment">Il faut les d&eacute;tecter...</li>
 							<li class="fragment">Avec une machine appel&eacute;e <b>un d&eacute;tecteur</b>.</li>
@@ -97,34 +96,59 @@
 						</ul>
 					</section>
 					<section data-auto-animate>
-						<h2>Comment peux-tu voir des particules ?</h2>
+						<h1>Comment trouver des particules ?</h1>
 						<div class="fragment">Comme quand on observe les traces des animaux...</div>
-						<img class="fragment  fade-up" src="photos/snow-traces.png" height="400px">
+						<img class="fragment fade-up" src="photos/snow-traces.jpg" height="400px">
 					</section>
 					<section data-auto-animate>
-						<h2>Comment peux-tu voir des particules ?</h2>
+						<h1>Comment trouver des particules ?</h1>
 						<div class="fragment">On a tous au moins un d&eacute;tecteur &agrave; la maison</div>
-						<img class="fragment  fade-up" src="photos/smoke-detector.jpg" height="400px">
+						<img class="fragment fade-up" src="photos/smoke-detector.jpg" height="400px">
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h1>Un message de l'amicale des particules</h1>
+						<h2>Un message de l'amicale des particules</h2>
+						<img src="photos/safety-message.jpg" height="300px">
 						<div class="fragment">Aucune particule ne sera maltraitée durant le d&eacute;roulement de cet atelier</div>
+						
 					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>Electron vs Proton</h1>
+						<div data-id="electron" class="fragment fade-right" style="text-align: left; float: left;">
+							<img src="images/electron.png">
+						</div>
+						
+						<div data-id="proton" class="fragment fade-left" style="text-align: right; float: right;">
+							<img src="images/proton.png">
+						</div>
 				    </section>
+					
+					<section>
+						<h1>Electron vs Proton</h1>
+						<div data-id="electron" class="fragment fade-right" style="text-align: left; float: left;">
+							<img src="images/electron.png">
+						</div>
+						
+						<div data-id="proton" class="fragment fade-left" style="text-align: right; float: right;">
+							<img src="images/proton.png">
+						</div>
+				    </section>
+
+					<section data-microsquad data-background-iframe="http://localhost:8000/?gn=charge" data-background-interactive> 
+					</section>
 
 				</section>
 				<section>
 					<section>
 						<h1>Photon vs Neutron</h1>
 				    </section>
+					<section data-microsquad data-background-iframe="http://localhost:8000/?gn=velocity" data-background-interactive> 
+					</section>
 
 				</section>
 
@@ -136,38 +160,10 @@
 
 				<section>
 					<section>
-						<h1>Les particules myst&egrave;res</h1>
+						<h1 class="r-fit-text">Les particules<br>myst&egrave;res</h1>
 				    </section>
 				</section>
 
-				
-					<section >
-						 <h2>D&eacute;tecter un proton</h2>
-						<!-- Game : Visualize a proton -->
-						<img alt="A proton" src="images/proton.png" style="width:100px;"> <img alt="A proton on Microbit" src="images/microbit-proton.png" style="width:100px;"> 
-				    </section>
-					<section data-markdown>
-						<textarea data-template>
-						## D&eacute;tecter un électron
-						<!-- Game : Visualize an electron -->
-
-						</textarea>
-						<img alt="An electron" src="images/electron.png" style="width:100px;"> 
-							<img alt="A neutron" src="images/neutron.png" style="width:100px;"> 
-							<img alt="A photon" src="images/photon.png" style="width:100px;"> 
-				    </section>
-
-					<section data-markdown>
-						<textarea data-template>
-						## D&eacute;tecter un photon
-						</textarea>
-				    </section>
-
-					<section data-markdown>
-						<textarea data-template>
-						## D&eacute;tecter un neutron
-						</textarea>
-				    </section>
 				</section>
 
 				<section>
@@ -189,16 +185,26 @@
 					</section>
 
 					<section>
-						<h4>Credits image (Creative Commons) :</h4>
+						<h2>Cr&eacute;dits image</h2>
 						<ul>
+							<li>Atom Diagram : <a href="https://thenounproject.com/term/atom-diagram/1986002/">Atom Diagram by Alexander Panosovsky from the Noun Project</a></li>
+							<li>BBC Micro Bit : <a href="https://thenounproject.com/term/atom-diagram/1986002/">BBC Micro Bit by fredley from the Noun Project</a></li>
 							<li>Ketchup Face : <a href="https://linktr.ee/wuestenigel">https://linktr.ee/wuestenigel</a></li>
 							<li>Smoke Detector, Lego Bricks, Lightning, Rain, Stars : Wikimedia Commons</li>
+							<li>Structure de la matière : <a href="http://logiqueformelle.free.fr/physique-quantique/theorie-quanta.php">Jonathan Delrue</a></li>
+							<li>Autres : CERN</li>
 						</ul>
 					</section>
 					<section>
-						<h4>Credits sons (Creative Commons) :</h4>
+						<h2>Cr&eacute;dits sons</h2>
 						<ul>
 							<li>Thump, Accumulate, Intro and Outro sounds : <br> <a href="https://freesound.org">https://freesound.org</a></li>
+							<li>Music elevator : <a href="https://freesound.org/s/460432/">Jay_You</a> </li>
+							<li>Cheering : <a href="https://freesound.org/s/18665/">Halleck</a></li>
+							<li>Food Market : <a href="https://freesound.org/s/326016/">VincePest11</a></li>
+							<li>Explosion in the air : <a href="https://freesound.org/s/424317/">milkmusic</a></li>
+							<li>Mud splat : <a href="https://freesound.org/s/445109/">Breviceps</a> </li>
+							<li>Tada Fanfare A : <a href="https://freesound.org/s/397355/">plasterbrain</a> </li>
 						</ul>
 					</section>
 				</section>
@@ -212,7 +218,7 @@
 		<script>
 			Reveal.initialize({
 				plugins: [ RevealMarkdown ],
-				progress: true,
+				progress: false,
 				controls: true
 			}).then(() => {
 				$(document).ready(
