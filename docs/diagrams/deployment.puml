@@ -1,0 +1,43 @@
+@startuml Deployment
+
+title The Detector is YOU Architecture
+
+cloud Internet {
+    agent "Web Browser" as WB
+}
+component "HA Proxy" <<Docker>> as HA
+
+HA <-up-> WB
+
+rectangle "Node-Red" <<Docker>> as NR {
+    component "Serial Gateway" as SG
+    component "Flow Server" <<Node-Red>> as NF
+    component "Dashboard UI" <<Node-Red>> as NU
+    component "Socket.IO" <<Node-Red>> as NS
+}
+component "MQTT Broker" <<Docker>> as MQ
+
+MQ <-down-> NF
+boundary "Radio Gateway" <<Microbit>> as RG
+
+RG <-down-> SG
+rectangle "Lutte" <<Docker>> as LU {
+    component "HATEOAS" as HO
+    database "Persistence" as DB
+    HO <-> DB
+}
+
+NS <-> NF
+NS <--> HO : Web Hooks
+NF <-> NU
+NF <--> SG
+HA <-down-> NR
+HA <-> LU
+
+agent "Device 1" <<Microbit>> as D1
+agent "Device 2" <<Microbit>> as D2
+agent "Device n" <<Microbit>> as DN
+RG <-down-> D1
+RG <-down-> D2
+RG <-down-> DN
+@enduml
