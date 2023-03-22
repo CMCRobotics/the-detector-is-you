@@ -39,8 +39,7 @@ wget https://github.com/bcopy/revealjs-microservice/releases/download/latest/rev
 ```
 
 You can now open a web browser at the address :
-http://microsquad:8001/presentation
-
+http://microsquad:8001/
 
 ### Start the Presentation (the NPM way)
  
