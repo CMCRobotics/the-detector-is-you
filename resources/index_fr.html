@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Le d&eacute;tecteur c'est&nbsp;toi</title>
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/detector.css">
+		<link rel="stylesheet" href="/webjars/reveal.js/4.1.3/dist/reveal.css">
+		<link rel="stylesheet" href="./css/detector.css">
 	</head>
 	<body>
 		
@@ -13,7 +13,7 @@
 
 				<section data-background-image="images/background.svg">
 					
-					<h1 class="r-fit-text">Installez-vous</h1>
+					<h1 class="r-fit-text">Installez-vous 😃</h1>
 					<h2 class="r-fit-text">La s&eacute;ance va bient&ocirc;t commencer</h2>
 					<audio data-autoplay loop id="elevator" src="music/elevator.mp3"></audio>
 					
@@ -73,9 +73,9 @@
 						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de Lego&trade;</h1>
 						<ul>
 							<li class="fragment">Il existe plusieurs types de particules</li>
-							<li class="fragment">Certaines sont lentes, d'autres se d&eacute;placent rapidement.</li>
-							<li class="fragment">Certaines sont lourdes, d'autres n'ont pas de masse du tout.</li>
-							<li class="fragment">Certaines ont une charge &eacute;lectrique positive ou n&eacute;gative.</li>
+							<li class="fragment">Certaines sont lentes, d'autres se d&eacute;placent rapidement. 🐇</li>
+							<li class="fragment">Certaines sont lourdes, d'autres n'ont pas de masse du tout. ✨</li>
+							<li class="fragment">Certaines ont une charge &eacute;lectrique positive ➕ ou n&eacute;gative ➖.</li>
 						</ul>
 					</section>
 
@@ -301,6 +301,8 @@
 								<li>Brice Copy</li>
 								<li>Sascha Melhase</li>
 								<li>Lucas Van Mol</li>
+                                <li>Gernot Werner Scheerer</li>
+                                <li>Ralf Erik Rossel</li>
 							</ul>
 						</div>
 					</section>
@@ -340,12 +342,10 @@
 				
 			</div>
 		</div>
-		<script src="../dist/jquery.min.js"></script>
-		<script src="../dist/reveal.js"></script>
-		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="/webjars/reveal.js/4.1.3/dist/reveal.js"></script>
 		<script>
 			Reveal.initialize({
-				plugins: [ RevealMarkdown ],
 				progress: false,
 				controls: true
 			}).then(() => {
@@ -353,14 +353,12 @@
 					function(){
 						$('body').on('submit','form',function() {
 							var sessionCode = $('#session_code')[0].value;
-							// $('#json').append(sessionCode);
 							$("section[data-microsquad]").each(
 								function(){
 									var iframeUrl = new URL( $(this).data("background-iframe") );
 									iframeUrl.searchParams.set("sc", sessionCode);
 									$(this).data("background-iframe",iframeUrl.href);
 									console.log("Now "+$(this).data("background-iframe"));
-									// Unfortunately this is NOT WORKING - IFRAME are not reloaded
 								}
 							);
 							return false;
