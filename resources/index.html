@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Der Detektor, das bist DU !</title>
-		<link rel="stylesheet" href="../dist/reveal.css">
-		<link rel="stylesheet" href="../dist/theme/detector.css">
+		<link rel="stylesheet" href="/webjars/reveal.js/4.1.3/dist/reveal.css">
+		<link rel="stylesheet" href="./css/detector.css">
 	</head>
 	<body>
 		
@@ -343,12 +343,10 @@
 				
 			</div>
 		</div>
-		<script src="../dist/jquery.min.js"></script>
-		<script src="../dist/reveal.js"></script>
-		<script src="../plugin/markdown/markdown.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="/webjars/reveal.js/4.1.3/dist/reveal.js"></script>
 		<script>
 			Reveal.initialize({
-				plugins: [ RevealMarkdown ],
 				progress: false,
 				controls: true
 			}).then(() => {
@@ -356,14 +354,12 @@
 					function(){
 						$('body').on('submit','form',function() {
 							var sessionCode = $('#session_code')[0].value;
-							// $('#json').append(sessionCode);
 							$("section[data-microsquad]").each(
 								function(){
 									var iframeUrl = new URL( $(this).data("background-iframe") );
 									iframeUrl.searchParams.set("sc", sessionCode);
 									$(this).data("background-iframe",iframeUrl.href);
 									console.log("Now "+$(this).data("background-iframe"));
-									// Unfortunately this is NOT WORKING - IFRAME are not reloaded
 								}
 							);
 							return false;

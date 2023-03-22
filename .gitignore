@@ -9,9 +9,9 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
-src/main/nodered/node_modules
 *.backup
-node/
-node_modules/
 .sass-cache
 dist/*.map
+node/
+node_modules/
+reveal-microservice

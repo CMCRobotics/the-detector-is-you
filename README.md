@@ -30,8 +30,20 @@ source source-path.sh
 npm start
 ```
 
-### Start the Presentation
+### Start the Presentation (the easy way)
 
+* Download the reveal microservice executable.
+For instance :
+```
+wget https://github.com/bcopy/revealjs-microservice/releases/download/latest/reveal-microservice-ubuntu-latest
+```
+
+You can now open a web browser at the address :
+http://microsquad:8001/presentation
+
+
+### Start the Presentation (the NPM way)
+ 
 * Open a terminal and execute
 
 ```
@@ -39,10 +51,6 @@ cd workspace/the-detector-is-you
 source source-path.sh
 npm start
 ```
-
-You can now open a web browser at the address :
-http://microsquad:8001/presentation
-
 
 ### How to reset the MQTT players' data between two games
 
