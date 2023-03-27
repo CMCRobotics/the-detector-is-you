@@ -11,41 +11,41 @@
 		<div class="reveal">
 			<div class="slides">
 
-				<section data-background-image="images/background.svg">
+				<section id="welcome" data-background-image="images/background.svg">
 					
-					<h1 class="r-fit-text">Installez-vous 😃</h1>
-					<h2 class="r-fit-text">La s&eacute;ance va bient&ocirc;t commencer</h2>
+					<h1 data-i18n="takeaseat" class="r-fit-text">Installez-vous 😃</h1>
+					<h2 data-i18n="startingsoon" class="r-fit-text">La s&eacute;ance va bient&ocirc;t commencer</h2>
 					<audio data-autoplay loop id="elevator" src="music/elevator.mp3"></audio>
 					
 				</section>
-				<section>
+				<section id="intro">
 					<section>
 						<audio data-autoplay id="tdiy" src="music/the-detector-is-you.mp3"></audio>
-						<h1 class="fragment grow r-fit-text" data-autoslide="700">Le d&eacute;tecteur</h1>
-						<h2 class="fragment r-fit-text fade-up" data-autoslide="3000">c'est&nbsp;toi !</h2>
+						<h1 data-i18n="thedetector" class="fragment grow r-fit-text" data-autoslide="700">Le d&eacute;tecteur</h1>
+						<h2 data-i18n="isyou" class="fragment r-fit-text fade-up" data-autoslide="3000">c'est&nbsp;toi !</h2>
 					</section>					
 				</section>
 
 				<section>
-					<section>
-						<h1 class="r-fit-text">Qui es-tu ?</h1>
+					<section id="whoareyou">
+						<h1 data-i18n="whoareyou" class="r-fit-text">Qui es-tu ?</h1>
 						</textarea>
 				    </section>
 					<section data-microsquad data-background-iframe="http://localhost:8000/?gn=customeeze" data-background-interactive> 
 					</section>
 				</section>
-				<section>
+				<section id="particles">
 					<section data-auto-animate>
-						<h1 id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
+						<h1 data-i18n="madeof" id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
 					</section>
 					<section data-auto-animate>
-						<h1 id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
-						<h2 id="de-particules">De particules !</h2>
+						<h1 data-i18n="madeof" id="de-quoi" class="r-fit-text">De quoi <br>es-tu fait ?</h1>
+						<h2 vid="de-particules">De particules !</h2>
 					</section>
 					<section data-auto-animate>
-						<h2 id="de-particules">De particules !</h2>
+						<h2 data-i18n="particles" id="de-particules">De particules !</h2>
 						<div data-id="particles-heading">Les particules sont de minuscules morceaux de matière qui composent tout ce qu'on trouve dans notre Univers.</div>
-						<img src="photos/matter.png">
+						<img src="photos/particles-hierarchy.png">
 						<h2 class="fragment">Tout est fait de particules !</h2>
 					<!-- </section> -->
 					</section>
@@ -67,10 +67,10 @@
 				</section>
 				<section>
 					<section data-auto-animate data-background-image="photos/lego-bricks.jpg">
-						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de Lego&trade;</h1>
+						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de construction</h1>
 					</section>
 					<section data-auto-animate>
-						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de Lego&trade;</h1>
+						<h1 data-id="lego" class="r-fit-text" data-id="lego">Comme des briques <br>de construction</h1>
 						<ul>
 							<li class="fragment">Il existe plusieurs types de particules</li>
 							<li class="fragment">Certaines sont lentes, d'autres se d&eacute;placent rapidement. 🐇</li>
@@ -88,7 +88,8 @@
 					<section data-auto-animate>
 						<h2>Comment trouver des particules ?</h2>
 						<ul>
-							<li >On ne peut pas les voir...</li>
+							<li >Elles sont tellement petites...</li>
+							<li class="fragment">Qu'on ne peut pas les voir !</li>
 							<li class="fragment">Ni les entendre, ni les toucher, ni les go&ucirc;ter, ni les sentir...</li>
 							<li class="fragment">Il faut les d&eacute;tecter...</li>
 							<li class="fragment">Avec une machine appel&eacute;e <b>un d&eacute;tecteur</b>.</li>
@@ -109,10 +110,18 @@
 
 				<section>
 					<section>
+						<h2>Les particules ont des caract&eacute;ristiques</h2>
+						<div>Qui nous permettent de les identifier</div>
+						<div class="fragment">Comme leur charge &eacute;lectrique</div>
+						<div class="fragment">Les d&eacute;tecteurs nous r&eacute;v&egrave;lent les caract&eacute;ristiques des particules qui les traversent</div>
+					</section>
+				</section>
+
+				<section>
+					<section>
 						<h2>Un message de l'amicale des particules</h2>
 						<img src="photos/safety-message.jpg" height="300px">
 						<div class="fragment">Aucune particule ne sera maltraitée durant le d&eacute;roulement de cet atelier</div>
-						
 					</section>
 				</section>
 
@@ -178,7 +187,7 @@
 						<h1>Photon vs Neutron</h1>
 						<div data-id="photon" style="text-align: left; float: left;">
 							<img src="images/photon.png" width="250px">
-							<div>Il est petit, l&eacute;ger, constamment en mouvement</div>
+							<div>Il ne p&egrave;se rien, et est constamment en mouvement</div>
 							<div class="fragment">C&apos;est gr&acirc;ce &agrave; lui que nous percevons la lumi&egrave;re</div>
 							<div class="fragment">Il n'a pas de <b>charge</b> &eacute;lectrique.</div>
 						</div>
@@ -187,9 +196,9 @@
 						<h1>Photon vs Neutron</h1>
 						<div data-id="neutron" style="text-align: right; float: right;">
 							<img src="images/neutron.png" width="250px">
-							<div>Il est plus gros, plus lourd.</div>
+							<div>Il est plus gros, et tr&egrave;s lourd.</div>
 							<div class="fragment">Il permet de fournir de l&apos;&eacute;nergie nucl&eacute;aire</div>
-							<div class="fragment">Il n'a pas de <b>charge</b> &eacute;lectrique.</div>
+							<div class="fragment">Il n'a pas de <b>charge</b> &eacute;lectrique non plus.</div>
 						</div>
 					</section>
 					<section>
@@ -198,7 +207,9 @@
 					</section>
 					<section>
 						<h3>D&eacute;tecter la masse d'une particule</h3>
-						<div class="fragment">On utilise un détecteur à calorimètre</div>
+						<div class="fragment">On utilise un calorim&egrave;tre</div>
+						<div class="fragment">C'est un appareil qui absorbe la particule</div>
+						<div class="fragment">Et nous indique l'&eacute;nergie qu'elle transportait.</div>
 						<img class="fragment"src="photos/splash.jpg">
 					</section>
 
@@ -264,6 +275,13 @@
 						<h3>Et au CERN ?</h3>
 						<img src="photos/detector.png">
 					</section>
+					<section data-auto-animate>
+						<h3>Et au CERN ?</h3>
+						<img src="photos/onion.jpg">
+					</section>
+					<section data-auto-animate>
+						<img src="photos/detector-intervention.jpg">
+					</section>
 				</section>
 
 
@@ -289,7 +307,7 @@
 
 				<section>
 					<section>
-						<h1>Credits</h1>
+						<h1>Cr&eacute;dits</h1>
 					</section>
 
 					<section>
@@ -326,7 +344,7 @@
 						</ul>
 					</section>
 					<section>
-						<h2>Cr&eacute;dits sons</h2>
+						<h2>Cr&eacute;dits divers</h2>
 						<ul>
 							<li>Thump, Accumulate, Intro and Outro sounds : <br> <a href="https://freesound.org">https://freesound.org</a></li>
 							<li>Music elevator : <a href="https://freesound.org/s/460432/">Jay_You</a> </li>
@@ -335,6 +353,7 @@
 							<li>Explosion in the air : <a href="https://freesound.org/s/424317/">milkmusic</a></li>
 							<li>Mud splat : <a href="https://freesound.org/s/445109/">Breviceps</a> </li>
 							<li>Tada Fanfare A : <a href="https://freesound.org/s/397355/">plasterbrain</a> </li>
+                                                        <li>LEGO&reg; est une marque d&eacutepos&eacutee de Lego Entrerprises.</li>
 						</ul>
 					</section>
 				</section>
@@ -344,8 +363,10 @@
 		</div>
 		<script src="js/jquery.min.js"></script>
 		<script src="/webjars/reveal.js/4.1.3/dist/reveal.js"></script>
+		<script src="plugin/internation/internation.js"></script>
 		<script>
 			Reveal.initialize({
+				plugins: [ Internation ],
 				progress: false,
 				controls: true
 			}).then(() => {
